@@ -12,8 +12,28 @@ export default function Home() {
         <DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />
       </div >
 
-      <div className="h-svh w-svw flex flex-col items-center justify-center">
-        <div>
+      <div className="fixed w-svw p-2">
+        <div className="bgwhite/30 p-2 flex backdrop-blur-xl rounded-xl justify-between">
+          <div className="fleur-de-leah-regular p-2 text-4xl select-none cursor-pointer">
+            def3r
+          </div>
+          <div className="text-lg font-light my-auto text-center pr-2">
+            <div className="flex gap-8">
+              <div className="select-none cursor-pointer hover:text-purple-300">Home</div>
+              <div className="select-none cursor-pointer hover:text-purple-300">About</div>
+              <div className="select-none cursor-pointer hover:text-purple-300">Projects</div>
+              <div className="select-none cursor-pointer hover:text-purple-300">Contact</div>
+              <div className="select-none cursor-pointer hover:text-purple-300">Blog</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="h-svh w-svw flex flex-col items-center">
+        <div className="w-svw h-1/3">
+        </div>
+
+        <div className="">
           <FuzzyText
             baseIntensity={0.01}
             enableHover={false}
@@ -53,7 +73,12 @@ export default function Home() {
 
         </div>
 
+        <div className="mt-5 text-lg max-w-[30em] text-pretty text-center backdrop-blur-xl rounded-xl p-4 font-light">
+          I am a 3rd year CSE student passionate about performance-driven development, from optimizing code to designing lightweight tools for Linux.
+        </div>
+
       </div>
+
 
     </div>
   );
