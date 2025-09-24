@@ -1,84 +1,91 @@
 "use client"
 
 import DarkVeil from '@/components/DarkVeil';
-import FuzzyText from '@/components/FuzzyText';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
+import { NavButton } from '@/components/NavButton';
+import { Home, Projects, Contact } from '@/components/Content'
+import { useSections } from './store';
+import { CardInterface } from '@/components/Card';
+import { FaRegKeyboard } from "react-icons/fa";
+import { RiWindow2Fill } from "react-icons/ri";
+import { GoTerminal } from "react-icons/go";
+import { MdOutlineDocumentScanner } from "react-icons/md";
+import { FaChartGantt } from "react-icons/fa6";
 
-export default function Home() {
+export default function Portfolio() {
+  const sections: string[] = ['Home', 'About', 'Projects', 'Contact', 'Blog']
+  const curSec = useSections((state) => state.section);
+
+  const projects: CardInterface[] = [
+    {
+      title: "Haka",
+      description: 'Lightweight Global Event Listener',
+      icon: <FaRegKeyboard size='3em' />,
+      gitLink: 'https://github.com/def3r/haka/',
+      srcCode: ["C", "libevdev", "POSIX"],
+    },
+    {
+      title: "dlsh",
+      description: 'Linux Shell from Scratch',
+      icon: <GoTerminal size='3em' />,
+      gitLink: 'https://github.com/def3r/dlsh/',
+      srcCode: ["Go"],
+    },
+    {
+      title: "Portfolio",
+      description: 'this.protfolio',
+      icon: <RiWindow2Fill size='3em' />,
+      gitLink: 'https://github.com/def3r/proportfolio/',
+      srcCode: ["React", "TailwindCSS", "Zustand"],
+    },
+    {
+      title: "CVInsight",
+      description: 'Resume-Filtering Web App',
+      icon: <MdOutlineDocumentScanner size='3em' />,
+      gitLink: 'https://github.com/orgs/Foxtrot-BHU/repositories',
+      srcCode: ["Fast-API", "Redis", "React", "Jotai"],
+    },
+    {
+      title: "SchedSim",
+      description: 'Simulation of OS Scheduling Algorithms',
+      icon: <FaChartGantt size='3em' />,
+      gitLink: 'https://github.com/def3r/schedsim/',
+      srcCode: ["Cpp", "Raylib"],
+    },
+  ]
+
   return (
     <div className="text-white">
-      <div style={{ width: '100%', height: `100vh`, position: 'fixed', zIndex: -20 }}>
+      <div className='w-svw h-svh fixed -z-20'>
         <DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />
       </div >
 
-      <div className="fixed w-svw p-2">
-        <div className="bgwhite/30 p-2 flex backdrop-blur-xl rounded-xl justify-between">
+      <div className="fixed w-svw p-2 z-20">
+        <div className="bg[#babbf1]/5 bg-black/50 p-2 flex backdrop-blur-xl rounded-xl justify-between">
           <div className="fleur-de-leah-regular p-2 text-4xl select-none cursor-pointer">
             def3r
           </div>
           <div className="text-lg font-light my-auto text-center pr-2">
             <div className="flex gap-8">
-              <div className="select-none cursor-pointer hover:text-purple-300">Home</div>
-              <div className="select-none cursor-pointer hover:text-purple-300">About</div>
-              <div className="select-none cursor-pointer hover:text-purple-300">Projects</div>
-              <div className="select-none cursor-pointer hover:text-purple-300">Contact</div>
-              <div className="select-none cursor-pointer hover:text-purple-300">Blog</div>
+              {sections.map((sec: string, idx: number) => {
+                return (
+                  <NavButton text={sec} key={idx} id={idx} />
+                )
+              })}
             </div>
           </div>
         </div>
       </div>
-
-      <div className="h-svh w-svw flex flex-col items-center">
-        <div className="w-svw h-1/3">
+      {(curSec != 0 && curSec != 3) &&
+        <div className='w-svw text-transparent select-none p-4'>
+          <div className="fleur-de-leah-regular p-2 text-4xl">
+            def3r
+          </div>
         </div>
+      }
 
-        <div className="">
-          <FuzzyText
-            baseIntensity={0.01}
-            enableHover={false}
-          >
-            Ayaan Khan
-          </FuzzyText>
-        </div >
-
-        <div className='md:text-3xl text-lg font-light text select-none'>
-          Transpiling Ideas into Solutions
-        </div>
-
-        <div className="flex gap-9 mt-5">
-          <a href="https://www.github.com/def3r" target='_blank'
-            className="cursor-pointer hover:bg-transparent hover:text-white hover:underline hover:scale-110"
-          >
-            <FaGithub size="2em" />
-          </a>
-
-          <a
-            className="cursor-pointer hover:bg-transparent hover:text-white hover:underline hover:scale-110"
-            href="https://www.linkedin.com/in/ayaank9/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin size="2em" />
-          </a>
-
-          <a
-            className="cursor-pointer hover:bg-transparent hover:text-white hover:underline hover:scale-110"
-            href="mailto:contact@def3r.in"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IoIosMail size="2em" />
-          </a>
-
-        </div>
-
-        <div className="mt-5 text-lg max-w-[30em] text-pretty text-center backdrop-blur-xl rounded-xl p-4 font-light">
-          I am a 3rd year CSE student passionate about performance-driven development, from optimizing code to designing lightweight tools for Linux.
-        </div>
-
-      </div>
-
+      {curSec == 0 && <Home />}
+      {curSec == 2 && <Projects projects={projects} />}
+      {curSec == 3 && <Contact />}
 
     </div>
   );
