@@ -1,18 +1,17 @@
-"use client"
-
-import DarkVeil from '@/components/DarkVeil';
-import { NavButton } from '@/components/NavButton';
-import { Home, Projects, Contact } from '@/components/Content'
+import DarkVeil from './components/DarkVeil';
+import { NavButton } from './components/NavButton';
+import { Home, Projects, Contact } from './components/Content'
 import { useSections } from './store';
-import { CardInterface } from '@/components/Card';
+import type { CardInterface } from './components/Card';
 import { FaRegKeyboard } from "react-icons/fa";
 import { RiWindow2Fill } from "react-icons/ri";
 import { GoTerminal } from "react-icons/go";
 import { MdOutlineDocumentScanner } from "react-icons/md";
 import { FaChartGantt } from "react-icons/fa6";
 
-export default function Portfolio() {
-  const sections: string[] = ['Home', 'About', 'Projects', 'Contact', 'Blog']
+
+export default function App() {
+  const sections: string[] = ['Home', 'Projects', 'Contact'] //'Blog'
   const curSec = useSections((state) => state.section);
 
   const projects: CardInterface[] = [
@@ -54,13 +53,13 @@ export default function Portfolio() {
   ]
 
   return (
-    <div className="text-white">
+    <div className="text-white bg[#2d3142]">
       <div className='w-svw h-svh fixed -z-20'>
-        <DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />
+        {<DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />}
       </div >
 
       <div className="fixed w-svw p-2 z-20">
-        <div className="bg[#babbf1]/5 bg-black/50 p-2 flex backdrop-blur-xl rounded-xl justify-between">
+        <div className="bg[#babbf1]/5 bg-black/40 p-2 flex backdrop-blur-xl rounded-xl justify-between">
           <div className="fleur-de-leah-regular p-2 text-4xl select-none cursor-pointer">
             def3r
           </div>
@@ -75,7 +74,7 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-      {(curSec != 0 && curSec != 3) &&
+      {(curSec != 0 && curSec != 2) &&
         <div className='w-svw text-transparent select-none p-4'>
           <div className="fleur-de-leah-regular p-2 text-4xl">
             def3r
@@ -84,8 +83,8 @@ export default function Portfolio() {
       }
 
       {curSec == 0 && <Home />}
-      {curSec == 2 && <Projects projects={projects} />}
-      {curSec == 3 && <Contact />}
+      {curSec == 1 && <Projects projects={projects} />}
+      {curSec == 2 && <Contact />}
 
     </div>
   );

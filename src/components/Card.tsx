@@ -12,9 +12,7 @@ export interface CardInterface {
 export function Card({ children, title, description, icon, gitLink, srcCode }: CardInterface) {
   return (
     <div>
-      <div className='p-2 h-[24em] w-[32em] rounded-xl blur-sm bg-black/30 bg[#babbf1]/5 absolute shadow-sm shadow-[#babbf1]'>
-      </div>
-      <div className='relative p-2 h-[24em] w-[32em] flex flex-col justify-between rounded-xl backdropblur-3xl bg-black/60 bg[#babbf1]/5'>
+      <div className='p-2 h-[24em] w-[32em] flex flex-col justify-between rounded-xl backdropblur-3xl bg-black/40 bg[#babbf1]/5'>
         <div>
           <div className='pb-2'>
             <div className='w-fit m-auto text-3xl font-medium'>

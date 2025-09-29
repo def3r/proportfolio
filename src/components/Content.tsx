@@ -1,8 +1,6 @@
-"use client"
-
-import FuzzyText from '@/components/FuzzyText';
-import { ReactElement, ReactNode } from 'react';
-import { Card, CardInterface } from './Card';
+import FuzzyText from './FuzzyText';
+import type { ReactElement, ReactNode } from 'react';
+import { Card, type CardInterface } from './Card';
 import { IoIosMail } from "react-icons/io";
 import { FaTwitter, FaDiscord, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -17,7 +15,7 @@ export function Home(): ReactElement {
         <FuzzyText
           baseIntensity={0.01}
           enableHover={false}
-          fontSize="12em"
+          fontSize="10em"
         >
           Ayaan Khan
         </FuzzyText>
@@ -29,20 +27,20 @@ export function Home(): ReactElement {
         </div>
         */}
 
-      <div className="mt-5 text-lg max-w-[30em] text-pretty text-center backdrop-blurxl rounded-xl p-4">
+      <div className="mt-3 text-lg max-w-[30em] text-pretty text-center backdrop-blurxl rounded-xl p-2">
         I am a 3rd year CSE student dedicated to performance-driven development, from optimizing code to designing lightweight tools for Linux.
       </div>
 
 
-      <div className="flex gap-9 mt-5">
+      <div className="flex gap-9 mt-3">
         <a href="https://www.github.com/def3r" target='_blank'
-          className="cursor-pointer hover:bg-transparent hover:text-white hover:underline hover:scale-110"
+          className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
         >
           <FaGithub size="2em" />
         </a>
 
         <a
-          className="cursor-pointer hover:bg-transparent hover:text-white hover:underline hover:scale-110"
+          className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
           href="https://www.linkedin.com/in/ayaank9/"
           target="_blank"
           rel="noopener noreferrer"
@@ -51,7 +49,7 @@ export function Home(): ReactElement {
         </a>
 
         <a
-          className="cursor-pointer hover:bg-transparent hover:text-white hover:underline hover:scale-110"
+          className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
           href="mailto:contact@def3r.in"
           target="_blank"
           rel="noopener noreferrer"
@@ -152,7 +150,7 @@ export function Contact() {
 
   return (
     <div className='w-svw h-svh flex justify-center items-center'>
-      <div className='bg-black/50 w-96 h-[24em] p-2 flex flex-col gap-4 justify-center items-center backdrop-blur-xl rounded-xl'>
+      <div className='bg-black/40 w-96 h-[24em] p-2 flex flex-col gap-4 justify-center items-center rounded-xl'>
         <div className='text-xl mb-2'>
           Connect with me.
         </div>

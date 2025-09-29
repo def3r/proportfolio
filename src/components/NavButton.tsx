@@ -1,4 +1,4 @@
-import { useSections } from '@/app/store';
+import { useSections } from '../store';
 
 interface NavButtonProps {
   text: string
