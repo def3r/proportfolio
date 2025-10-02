@@ -4,7 +4,7 @@ import { Home, Projects, Contact } from './components/Content'
 import { useSections } from './store';
 import type { CardInterface } from './components/Card';
 import { FaRegKeyboard } from "react-icons/fa";
-import { RiWindow2Fill } from "react-icons/ri";
+import { RiWindow2Fill, RiNodeTree } from "react-icons/ri";
 import { GoTerminal } from "react-icons/go";
 import { MdOutlineDocumentScanner } from "react-icons/md";
 import { FaChartGantt } from "react-icons/fa6";
@@ -38,10 +38,17 @@ export default function App() {
     },
     {
       title: "CVInsight",
-      description: 'Resume-Filtering Web App',
+      description: 'AI Powered Resume-Filtering Web App',
       icon: <MdOutlineDocumentScanner size='3em' />,
       gitLink: 'https://github.com/orgs/Foxtrot-BHU/repositories',
       srcCode: ["Fast-API", "Redis", "React", "Jotai"],
+    },
+    {
+      title: "Parse.md",
+      description: 'Markdown parser library for C++',
+      icon: <RiNodeTree size='3em' />,
+      gitLink: 'https://github.com/def3r/Parse.md/',
+      srcCode: ["Cpp"],
     },
     {
       title: "SchedSim",
@@ -53,7 +60,7 @@ export default function App() {
   ]
 
   return (
-    <div className="text-white bg[#2d3142]">
+    <div className="text-white bg[#2d3142] inter-regular">
       <div className='w-svw h-svh fixed -z-20'>
         {<DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />}
       </div >
