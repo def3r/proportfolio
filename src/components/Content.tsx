@@ -63,6 +63,16 @@ export function Home(): ReactElement {
   )
 }
 
+export function ProjectDescList({ list }: { list: string[] }): ReactElement {
+  return (
+    <div className='pl-2'>
+      <ul className="list-disc space-y-3 text-zinc-200 font-light">
+        {list.map((listItem, i) => <li key={i}>{listItem}</li>)}
+      </ul>
+    </div>
+  )
+}
+
 export function Projects({ projects }: { projects: CardInterface[] }): ReactElement {
   const rows: ReactElement[] = [];
 
