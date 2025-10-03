@@ -10,7 +10,7 @@ import { SiLeetcode } from "react-icons/si";
 import { FaChartGantt } from "react-icons/fa6";
 
 export const name = "Ayaan Khan"
-export const description = "I am a 3rd year CSE student dedicated to performance-driven development, from optimizing code to designing lightweight tools for Linux."
+export const description = "3rd year CSE student at IIITN. I design lightweight tools for Linux and contribute original code that helps train LLMs."
 
 export const projects: CardInterfaceData[] = [
   {
@@ -18,7 +18,7 @@ export const projects: CardInterfaceData[] = [
     description: 'Lightweight Global Event Listener',
     children: [
       "Keyboard event tener for ux which integrates seamlessly with systemd as a daemon",
-      "Provides a simple API to add custom event handlers to trigger scripts, automate workflows, etc. with just 6 es of code!",
+      "Provides a simple API to add custom event handlers to trigger scripts, automate workflows, etc. with just 6 lines of code!",
       "Configurable via a config file"
     ],
     icon: FaRegKeyboard,

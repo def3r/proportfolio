@@ -26,7 +26,7 @@ export function Home({ name, description }: { name: string, description: string 
       <FuzzyText
         baseIntensity={0.01}
         enableHover={false}
-        fontSize="10em"
+      // fontSize="10em"
       >
         {name}
       </FuzzyText>
@@ -37,7 +37,7 @@ export function Home({ name, description }: { name: string, description: string 
         </div>
         */}
 
-      <div className="mt-3 text-lg max-w-[30em] text-pretty text-center backdrop-blurxl rounded-xl p-2">
+      <div className="mt-3 sm:text-lg sm:max-w-[30em] max-w-[20em] text-pretty text-center backdrop-blurxl rounded-xl p-2">
         {description}
       </div>
 
@@ -67,7 +67,7 @@ export function Projects({ projects }: { projects: CardInterfaceData[] }): React
 
   for (let i = 0; i < projects.length; i += 2) {
     rows.push(
-      <div key={i} className="flex justify-around mb-12">
+      <div key={i} className="flex min-[856px]:flex-row items-center flex-col min-[856px]:gap-0 gap-12 justify-around mb-12">
         {projects.slice(i, i + 2).map((project, idx) => {
           const Icon = project.icon
           return (
@@ -96,7 +96,7 @@ export function Projects({ projects }: { projects: CardInterfaceData[] }): React
 export function Contact({ contactInfo }: { contactInfo: ContactPairInterface[] }) {
   return (
     <div className='w-svw h-svh flex justify-center items-center'>
-      <div className='bg-black/40 w-96 h-[24em] p-2 flex flex-col gap-4 justify-center items-center rounded-xl'>
+      <div className='bg-black/40 sm:w-96 w-72 h-[24em] p-2 flex flex-col gap-4 justify-center items-center rounded-xl'>
         <div className='text-xl mb-2'>
           Connect with me.
         </div>

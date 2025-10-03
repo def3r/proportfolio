@@ -16,10 +16,10 @@ export default function App() {
 
       <div className="fixed w-svw p-2 z-20">
         <div className="bg[#babbf1]/5 bg-black/40 p-2 flex backdrop-blur-xl rounded-xl justify-between">
-          <div className="fleur-de-leah-regular p-2 text-4xl select-none cursor-pointer">
+          <div className="fleur-de-leah-regular p-2 text-4xl select-none cursor-pointer min-[404px]:block hidden">
             def3r
           </div>
-          <div className="text-lg font-light my-auto text-center pr-2">
+          <div className="text-lg font-light my-auto text-center sm:pr-2 p-4">
             <div className="flex gap-8">
               {sections.map((sec: string, idx: number) => {
                 return (
