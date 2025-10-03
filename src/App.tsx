@@ -1,92 +1,12 @@
 import DarkVeil from './components/DarkVeil';
 import { NavButton } from './components/NavButton';
-import { Home, ProjectDescList, Projects, Contact } from './components/Content'
+import { Home, Projects, Contact } from './components/Content'
 import { useSections } from './store';
-import type { CardInterface } from './components/Card';
-import { FaRegKeyboard } from "react-icons/fa";
-import { RiWindow2Fill, RiNodeTree } from "react-icons/ri";
-import { GoTerminal } from "react-icons/go";
-import { MdOutlineDocumentScanner } from "react-icons/md";
-import { FaChartGantt } from "react-icons/fa6";
-
+import { name, description, projects, contactInfo } from './data';
 
 export default function App() {
   const sections: string[] = ['Home', 'Projects', 'Contact'] //'Blog'
   const curSec = useSections((state) => state.section);
-
-  const projects: CardInterface[] = [
-    {
-      title: "Haka",
-      description: 'Lightweight Global Event Listener',
-      children: <ProjectDescList list={[
-        "Keyboard event tener for ux which integrates seamlessly with systemd as a daemon",
-        "Provides a simple API to add custom event handlers to trigger scripts, automate workflows, etc. with just 6 es of code!",
-        "Configurable via a config file"
-      ]} />,
-      icon: <FaRegKeyboard size='3em' />,
-      gitLink: 'https://github.com/def3r/haka/',
-      srcCode: ["C", "libevdev", "POSIX"],
-    },
-    {
-      title: "dlsh",
-      description: 'Linux Shell from Scratch',
-      children: <ProjectDescList list={[
-        "Modern shell built entirely from scratch with zero external dependencies",
-        "Includes a custom line editor that manages the terminal in raw mode",
-        "Memory efficient and fast autocomplete suggestions using trie and heap"
-      ]} />,
-      icon: <GoTerminal size='3em' />,
-      gitLink: 'https://github.com/def3r/dlsh/',
-      srcCode: ["Go"],
-    },
-    {
-      title: "Parse.md",
-      description: 'Markdown parser library for C++',
-      children: <ProjectDescList list={[
-        "Tiny (<1K lines) stack-based markdown parser library for C++",
-        "Produces a traversable AST for easy rendering",
-        "Renderer-agnostic, plug-in HTML, ANSI or custom output",
-      ]} />,
-      icon: <RiNodeTree size='3em' />,
-      gitLink: 'https://github.com/def3r/Parse.md/',
-      srcCode: ["Cpp"],
-    },
-    {
-      title: "CVInsight",
-      description: 'AI Powered Resume-Filtering Web App',
-      children: <ProjectDescList list={[
-        "Built during the campus round of the ByteRunners Hackathon organized by IIT Delhi, 2025",
-        "Led a team of 3 developers to implement it in just 36 hours",
-        "Built and optimized FastAPI backend, real-time updates via Web sockets and caching TF-IDF vectors using Redis",
-      ]} />,
-      icon: <MdOutlineDocumentScanner size='3em' />,
-      gitLink: 'https://github.com/orgs/Foxtrot-BHU/repositories',
-      srcCode: ["FastAPI", "Redis", "React", "Jotai"],
-    },
-    {
-      title: "SchedSim",
-      description: 'Simulation of OS Scheduling Algorithms',
-      children: <ProjectDescList list={[
-        "Visualizes Gantt Chart using Raylib and calculates performance metrics",
-        "Supports SJF, SRTF, RR and VRR algorithms",
-        "Features vim-like navigation keybinds"
-      ]} />,
-      icon: <FaChartGantt size='3em' />,
-      gitLink: 'https://github.com/def3r/schedsim/',
-      srcCode: ["Cpp", "Raylib"],
-    },
-    {
-      title: "Portfolio",
-      description: 'this.protfolio',
-      children: <ProjectDescList list={[
-        "Minimal state management using Zustand",
-        "Reusable components and responsive design"
-      ]} />,
-      icon: <RiWindow2Fill size='3em' />,
-      gitLink: 'https://github.com/def3r/proportfolio/',
-      srcCode: ["React", "TailwindCSS", "Zustand"],
-    },
-  ]
 
   return (
     <div className="text-white bg[#2d3142] inter-regular">
@@ -110,6 +30,7 @@ export default function App() {
           </div>
         </div>
       </div>
+
       {(curSec != 0 && curSec != 2) &&
         <div className='w-svw text-transparent select-none p-4'>
           <div className="fleur-de-leah-regular p-2 text-4xl">
@@ -118,9 +39,9 @@ export default function App() {
         </div>
       }
 
-      {curSec == 0 && <Home />}
+      {curSec == 0 && <Home {...{ name }} {...{ description }} />}
       {curSec == 1 && <Projects projects={projects} />}
-      {curSec == 2 && <Contact />}
+      {curSec == 2 && <Contact {...{ contactInfo }} />}
 
     </div>
   );

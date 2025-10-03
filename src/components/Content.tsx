@@ -1,25 +1,35 @@
 import FuzzyText from './FuzzyText';
-import type { ReactElement, ReactNode } from 'react';
-import { Card, type CardInterface } from './Card';
+import type { ReactElement } from 'react';
+import { Card, type CardInterfaceData } from './Card';
 import { IoIosMail } from "react-icons/io";
-import { FaTwitter, FaDiscord, FaLinkedin, FaGithub } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import type { IconType } from 'react-icons';
+import { type ContactPairInterface, ContactPair } from './ContactPair';
 
-export function Home(): ReactElement {
+function HomeButton({ href, icon }: { href: string, icon: IconType }): ReactElement {
+  const Icon = icon
+  return <a
+    className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Icon size="2em" />
+  </a>
+}
+
+export function Home({ name, description }: { name: string, description: string }): ReactElement {
   return (
     <div className="h-svh w-svw flex flex-col items-center">
-      <div className="w-svw h-1/3">
-      </div>
+      <div className="w-svw h-1/3"></div>
 
-      <div className="">
-        <FuzzyText
-          baseIntensity={0.01}
-          enableHover={false}
-          fontSize="10em"
-        >
-          Ayaan Khan
-        </FuzzyText>
-      </div >
+      <FuzzyText
+        baseIntensity={0.01}
+        enableHover={false}
+        fontSize="10em"
+      >
+        {name}
+      </FuzzyText>
 
       {/*
         <div className='md:text-3xl text-lg font-light text select-none'>
@@ -28,35 +38,14 @@ export function Home(): ReactElement {
         */}
 
       <div className="mt-3 text-lg max-w-[30em] text-pretty text-center backdrop-blurxl rounded-xl p-2">
-        I am a 3rd year CSE student dedicated to performance-driven development, from optimizing code to designing lightweight tools for Linux.
+        {description}
       </div>
 
 
       <div className="flex gap-9 mt-3">
-        <a href="https://www.github.com/def3r" target='_blank'
-          className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
-        >
-          <FaGithub size="2em" />
-        </a>
-
-        <a
-          className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
-          href="https://www.linkedin.com/in/ayaank9/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin size="2em" />
-        </a>
-
-        <a
-          className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
-          href="mailto:contact@def3r.in"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <IoIosMail size="2em" />
-        </a>
-
+        <HomeButton href="https://www.github.com/def3r" icon={FaGithub} />
+        <HomeButton href="https://www.linkedin.com/in/ayaank9/" icon={FaLinkedin} />
+        <HomeButton href="mailto:contact@def3r.in" icon={IoIosMail} />
       </div>
 
     </div>
@@ -73,91 +62,38 @@ export function ProjectDescList({ list }: { list: string[] }): ReactElement {
   )
 }
 
-export function Projects({ projects }: { projects: CardInterface[] }): ReactElement {
+export function Projects({ projects }: { projects: CardInterfaceData[] }): ReactElement {
   const rows: ReactElement[] = [];
 
   for (let i = 0; i < projects.length; i += 2) {
     rows.push(
       <div key={i} className="flex justify-around mb-12">
-        {projects.slice(i, i + 2).map((project, idx) => (
-          <Card key={i + idx} {...project} />
-        ))}
+        {projects.slice(i, i + 2).map((project, idx) => {
+          const Icon = project.icon
+          return (
+            <Card key={i + idx}
+              title={project.title}
+              description={project.description}
+              icon=<Icon size={project.iconSize ? project.iconSize : "3em"} />
+              gitLink={project.gitLink}
+              srcCode={project.srcCode}
+            >
+              <ProjectDescList list={project.children!} />
+            </Card>
+          )
+        })}
       </div>
     );
   }
 
   return (
-    <div>
-      <div className="w-svw px-8 py-4">
-        {
-          /*
-          <div className='text-4xl m-auto w-fit text-violet-300 pb-4'>
-            Projects
-          </div>
-          */
-        }
-
-        <div className=''>
-          {/*projects.map((project: CardInterface, idx: number) => <Card {...project} key={idx} />)*/
-            rows
-          }
-        </div>
-
-      </div>
+    <div className="w-svw px-8 py-4">
+      {rows}
     </div>
   )
 }
 
-export interface ContactPairInterface {
-  href: string
-  icon: ReactNode
-  text: string
-}
-
-function ContactPair({ href, icon, text }: ContactPairInterface) {
-  return (
-    <a href={href} target="_blank" className='w-[12em] hover:text-violet-300'>
-      <div className='flex items-center gap-4 select-none cursor-pointer'>
-        {icon} {text}
-      </div>
-    </a>
-  )
-}
-
-export function Contact() {
-  const contactInfo: ContactPairInterface[] = [
-    {
-      href: "mailto:contact@def3r.in",
-      icon: <IoIosMail size="2em" />,
-      text: "contact@def3r.in"
-    },
-    {
-      href: "https://www.linkedin.com/in/ayaank9/",
-      icon: <FaLinkedin size="2em" />,
-      text: "Ayaan Khan"
-    },
-    {
-      href: "https://x.com/def3r_",
-      icon: <FaTwitter size="2em" />,
-      text: "@def3r_"
-    },
-    {
-      href: "https://discord.com/users/784839718801768468",
-      icon: <FaDiscord size="2em" />,
-      text: "@plankconstant"
-    },
-    {
-      href: "https://github.com/def3r",
-      icon: <FaGithub size="2em" />,
-      text: "@def3r"
-    },
-    {
-      href: "https://leetcode.com/u/def3r",
-      icon: <SiLeetcode size="2em" />,
-      text: "@def3r"
-    },
-  ]
-
+export function Contact({ contactInfo }: { contactInfo: ContactPairInterface[] }) {
   return (
     <div className='w-svw h-svh flex justify-center items-center'>
       <div className='bg-black/40 w-96 h-[24em] p-2 flex flex-col gap-4 justify-center items-center rounded-xl'>

@@ -1,4 +1,15 @@
+import type { IconType } from "react-icons";
 import { FaGithub } from "react-icons/fa";
+
+export interface CardInterfaceData {
+  title: string
+  description: string
+  children?: string[]
+  icon: IconType
+  iconSize?: string
+  gitLink: string
+  srcCode: string[]
+}
 
 export interface CardInterface {
   children?: React.ReactNode;
