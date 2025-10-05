@@ -8,10 +8,12 @@ export default function App() {
   const sections: string[] = ['Home', 'Projects', 'Contact'] //'Blog'
   const curSec = useSections((state) => state.section);
 
+  // bg-gradient-to-tl from-emerald-100 to-purple-800
+  // bg-gradient-to-tl from-slate-900 to-purple-800
   return (
-    <div className="text-white bg[#2d3142] inter-regular">
-      <div className='w-svw h-svh fixed -z-20'>
-        {<DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />}
+    <div className="text-white inter-regular bg-black absolute -z-20">
+      <div className='min-w-[1464px] w-svw min-h-[824px] h-svh fixed -z-10'>
+        <DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />
       </div >
 
       <div className="fixed w-svw p-2 z-20">
