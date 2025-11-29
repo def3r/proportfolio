@@ -1,4 +1,3 @@
-import DarkVeil from './components/DarkVeil';
 import { NavButton } from './components/NavButton';
 import { Home, Projects, Contact } from './components/Content'
 import { useSections } from './store';
@@ -8,16 +7,11 @@ export default function App() {
   const sections: string[] = ['Home', 'Projects', 'Contact'] //'Blog'
   const curSec = useSections((state) => state.section);
 
-  // bg-gradient-to-tl from-emerald-100 to-purple-800
-  // bg-gradient-to-tl from-slate-900 to-purple-800
   return (
-    <div className="text-white inter-regular bg-black absolute -z-20">
-      <div className='min-w-[1464px] w-svw min-h-[824px] h-svh fixed -z-10'>
-        <DarkVeil noiseIntensity={0} scanlineFrequency={0} scanlineIntensity={1} />
-      </div >
+    <div className="text-text inter-regular bg-bg absolute -z-20">
 
       <div className="fixed w-svw p-2 z-20">
-        <div className="bg[#babbf1]/5 bg-black/40 p-2 flex backdrop-blur-xl rounded-xl justify-between">
+        <div className="bg-card-bg/40 p-2 flex backdrop-blur-xl rounded-xl justify-between">
           <div className="fleur-de-leah-regular p-2 text-4xl select-none cursor-pointer min-[404px]:block hidden">
             def3r
           </div>

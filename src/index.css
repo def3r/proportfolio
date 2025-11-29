@@ -3,6 +3,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme {
+ --color-text: #ccc5b9;
+ --color-bg: #181818;
+ --color-hover: #eb5e28;
+
+ --color-card-bg: #252422;
+}
+
 .fleur-de-leah-regular {
   font-family: "Fleur De Leah", cursive;
   font-weight: 400;

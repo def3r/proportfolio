@@ -9,7 +9,7 @@ import { type ContactPairInterface, ContactPair } from './ContactPair';
 function HomeButton({ href, icon }: { href: string, icon: IconType }): ReactElement {
   const Icon = icon
   return <a
-    className="cursor-pointer hover:bg-transparent hover:text-violet-300 hover:underline hover:scale-110"
+    className="cursor-pointer hover:bg-transparent hover:text-hover hover:underline hover:scale-110"
     href={href}
     target="_blank"
     rel="noopener noreferrer"
@@ -96,7 +96,7 @@ export function Projects({ projects }: { projects: CardInterfaceData[] }): React
 export function Contact({ contactInfo }: { contactInfo: ContactPairInterface[] }) {
   return (
     <div className='w-svw h-svh flex justify-center items-center'>
-      <div className='bg-black/40 sm:w-96 w-72 h-[24em] p-2 flex flex-col gap-4 justify-center items-center rounded-xl'>
+      <div className='bg-card-bg/40 sm:w-96 w-72 h-[24em] p-2 flex flex-col gap-4 justify-center items-center rounded-xl'>
         <div className='text-xl mb-2'>
           Connect with me.
         </div>

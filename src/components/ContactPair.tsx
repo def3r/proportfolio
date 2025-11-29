@@ -9,7 +9,7 @@ export interface ContactPairInterface {
 export function ContactPair({ href, icon, text }: ContactPairInterface) {
   const Icon = icon
   return (
-    <a href={href} target="_blank" className='w-[12em] hover:text-violet-300'>
+    <a href={href} target="_blank" className='w-[12em] hover:text-hover'>
       <div className='flex items-center gap-4 select-none cursor-pointer'>
         <Icon size="2em" /> {text}
       </div>

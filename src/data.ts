@@ -26,7 +26,7 @@ export const projects: CardInterfaceData[] = [
     srcCode: ["C", "libevdev", "POSIX"],
   },
   {
-    title: "dlsh",
+    title: "Dlsh",
     description: 'Linux Shell from Scratch',
     children: [
       "Modern shell built entirely from scratch with zero external dependencies",
@@ -41,8 +41,9 @@ export const projects: CardInterfaceData[] = [
     title: "Parse.md",
     description: 'Markdown parser library for C++',
     children: [
-      "Tiny (<1K lines) stack-based markdown parser library for C++",
-      "Produces a traversable AST for easy rendering",
+      "Tiny (<1K LOC) stack-based markdown parser library for C++",
+      "Lightweight and fast, with a throughput of ~22 MB/s",
+      "Fully compliant with the CommonMark Spec",
       "Renderer-agnostic, plug-in HTML, ANSI or custom output",
     ],
     icon: RiNodeTree,
