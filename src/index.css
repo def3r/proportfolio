@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -11,6 +12,10 @@
  --color-card-bg: #252422;
 }
 
+body {
+  background-color: var(--color-bg);
+}
+
 .fleur-de-leah-regular {
   font-family: "Fleur De Leah", cursive;
   font-weight: 400;
@@ -20,6 +25,12 @@
 .inter-regular {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poiret-one-regular {
+  font-family: "Poiret One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }

@@ -21,7 +21,7 @@ function HomeButton({ href, icon }: { href: string, icon: IconType }): ReactElem
 export function Home({ name, description }: { name: string, description: string }): ReactElement {
   return (
     <div className="h-svh w-svw flex flex-col items-center">
-      <div className="w-svw h-1/3"></div>
+      <div className="w-svw h-[35%]"></div>
 
       <FuzzyText
         baseIntensity={0.01}
@@ -62,9 +62,8 @@ export function ProjectDescList({ list }: { list: string[] }): ReactElement {
   )
 }
 
-export function Projects({ projects }: { projects: CardInterfaceData[] }): ReactElement {
+function MakeRows(projects: CardInterfaceData[]): ReactElement[] {
   const rows: ReactElement[] = [];
-
   for (let i = 0; i < projects.length; i += 2) {
     rows.push(
       <div key={i} className="flex min-[856px]:flex-row items-center flex-col min-[856px]:gap-0 gap-12 justify-around mb-12">
@@ -86,9 +85,28 @@ export function Projects({ projects }: { projects: CardInterfaceData[] }): React
     );
   }
 
+  return rows
+}
+
+export function Projects({ projects, academic }: { projects: CardInterfaceData[], academic: CardInterfaceData[] }): ReactElement {
+  const rows: ReactElement[] = MakeRows(projects);
+  const acRows: ReactElement[] = MakeRows(academic);
+
   return (
     <div className="w-svw px-8 py-4">
       {rows}
+
+      <div className='flex justify-center gap-4 items-center mb-12 select-none'>
+        - - -
+        <hr className='min-[404px]:block w-[5%] hidden' />
+        <div className="poiret-one-regular text-center p-2 text-4xl">
+          Academic
+        </div>
+        <hr className='min-[404px]:block w-[5%] hidden' />
+        - - -
+      </div>
+
+      {acRows}
     </div>
   )
 }

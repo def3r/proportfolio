@@ -5,12 +5,12 @@ import { RiWindow2Fill, RiNodeTree } from "react-icons/ri";
 import { GoTerminal } from "react-icons/go";
 import { MdOutlineDocumentScanner } from "react-icons/md";
 import { IoIosMail } from "react-icons/io";
-import { FaRegKeyboard, FaTwitter, FaDiscord, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaRegKeyboard, FaTwitter, FaDiscord, FaLinkedin, FaGithub, FaProjectDiagram } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { FaChartGantt } from "react-icons/fa6";
 
 export const name = "Ayaan Khan"
-export const description = "3rd year CSE student at IIITN. I design lightweight tools for Linux and contribute original code that helps train LLMs."
+export const description = "3rd year CSE student at IIITN. I design lightweight tools for Linux, and am actively learning about OS, Parsers, Compilers and other low level concepts"
 
 export const projects: CardInterfaceData[] = [
   {
@@ -48,7 +48,7 @@ export const projects: CardInterfaceData[] = [
     ],
     icon: RiNodeTree,
     gitLink: 'https://github.com/def3r/Parse.md/',
-    srcCode: ["Cpp"],
+    srcCode: ["Cpp", "Google Benchmark"],
   },
   {
     title: "CVInsight",
@@ -61,6 +61,19 @@ export const projects: CardInterfaceData[] = [
     icon: MdOutlineDocumentScanner,
     gitLink: 'https://github.com/orgs/Foxtrot-BHU/repositories',
     srcCode: ["FastAPI", "Redis", "React", "Jotai"],
+  },
+  {
+    title: "Tuma",
+    description: 'Turing Machine Simulator',
+    children: [
+      "Supports turing machines operating as acceptors or transducers",
+      "Utilized TOML format for storing Turing Machine description to ensure high readibility",
+      "Developed a custom TOML parser from scratch",
+      "Programmatically generates a transition graph from the TOML description"
+    ],
+    icon: FaProjectDiagram,
+    gitLink: 'https://github.com/def3r/tuma/',
+    srcCode: ["C", "Raylib"],
   },
   {
     title: "SchedSim",
