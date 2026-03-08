@@ -116,7 +116,7 @@ export function Contact({ contactInfo }: { contactInfo: ContactPairInterface[] }
     <div className='w-svw h-svh flex justify-center items-center'>
       <div className='bg-card-bg/40 sm:w-96 w-72 h-[24em] p-2 flex flex-col gap-4 justify-center items-center rounded-xl'>
         <div className='text-xl mb-2'>
-          Connect with me.
+          Connect with me
         </div>
 
         {contactInfo.map((info, key) => <ContactPair key={key} {...info} />)}

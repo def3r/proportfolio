@@ -36,7 +36,7 @@ export default function App() {
       }
 
       {curSec == 0 && <Home {...{ name }} {...{ description }} />}
-      {curSec == 1 && <Projects projects={projects.slice(0, 4)} academic={projects.slice(4)} />}
+      {curSec == 1 && <Projects projects={projects.slice(0, 5)} academic={projects.slice(5)} />}
       {curSec == 2 && <Contact {...{ contactInfo }} />}
 
     </div>

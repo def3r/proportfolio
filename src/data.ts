@@ -6,19 +6,20 @@ import { GoTerminal } from "react-icons/go";
 import { MdOutlineDocumentScanner } from "react-icons/md";
 import { IoIosMail } from "react-icons/io";
 import { FaRegKeyboard, FaTwitter, FaDiscord, FaLinkedin, FaGithub, FaProjectDiagram } from "react-icons/fa";
+import { IoHardwareChipOutline } from "react-icons/io5";
 import { SiLeetcode } from "react-icons/si";
 import { FaChartGantt } from "react-icons/fa6";
 
 export const name = "Ayaan Khan"
-export const description = "3rd year CSE student at IIITN. I design lightweight tools for Linux, and am actively learning about OS, Parsers, Compilers and other low level concepts"
+export const description = "CSE undergrad. I design lightweight tools for Linux, and am interested in OS, compilers and systems programming"
 
 export const projects: CardInterfaceData[] = [
   {
     title: "Haka",
     description: 'Lightweight Global Event Listener',
     children: [
-      "Keyboard event tener for ux which integrates seamlessly with systemd as a daemon",
-      "Provides a simple API to add custom event handlers to trigger scripts, automate workflows, etc. with just 6 lines of code!",
+      "A high-performance, plug-able, background service that automates on keyboard events",
+      "Provides a modular C API plugins, thus allowing users to have custom event callbacks",
       "Configurable via a config file"
     ],
     icon: FaRegKeyboard,
@@ -26,10 +27,22 @@ export const projects: CardInterfaceData[] = [
     srcCode: ["C", "libevdev", "POSIX"],
   },
   {
+    title: "ViOS",
+    description: "VIM focused 32 bit x86 OS",
+    children: [
+      "A 32 bit x86 OS with a custom libc, GDT, IDT, and PIC-mapped interrupt subsystem",
+      "Includes MMIO VGA driver, PS/2 keyboard driver and a mediator layer for VIM-style input processing",
+      "Currently making a shell and basic file management system"
+    ],
+    icon: IoHardwareChipOutline,
+    gitLink: "https://github.com/def3r/SIGSEGV/tree/main/Kernel/viOS",
+    srcCode: ["C", "GNU Asm"]
+  },
+  {
     title: "Dlsh",
     description: 'Linux Shell from Scratch',
     children: [
-      "Modern shell built entirely from scratch with zero external dependencies",
+      "Shell built entirely from scratch with zero external dependencies",
       "Includes a custom line editor that manages the terminal in raw mode",
       "Memory efficient and fast autocomplete suggestions using trie and heap"
     ],
