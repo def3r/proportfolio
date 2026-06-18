@@ -1,11 +1,11 @@
 import { NavButton } from './components/NavButton';
-import { Home, Projects, Contact } from './components/Content'
+import { Home, Projects, Contact, BlogList } from './components/Content'
 import { useSections } from './store';
-import { name, description, projects, contactInfo } from './data';
+import { name, description, projects, contactInfo, blogs } from './data';
 import Marquee from './components/Marquee';
 
 export default function HomePg() {
-  const sections: string[] = ['Home', 'Projects', 'Contact'] //'Blog'
+  const sections: string[] = ['Home', 'Projects', 'Blogs (beta)', 'Contact']
   const curSec = useSections((state) => state.section);
 
   return (
@@ -37,7 +37,8 @@ export default function HomePg() {
 
       {curSec == 0 && <Home {...{ name }} {...{ description }} />}
       {curSec == 1 && <Projects projects={projects.slice(0, 5)} academic={projects.slice(5)} />}
-      {curSec == 2 && <Contact {...{ contactInfo }} />}
+      {curSec == 2 && <BlogList blogs={blogs} />}
+      {curSec == 3 && <Contact {...{ contactInfo }} />}
 
     </div>
   );

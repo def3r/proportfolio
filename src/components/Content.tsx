@@ -5,6 +5,8 @@ import { IoIosMail } from "react-icons/io";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import type { IconType } from 'react-icons';
 import { type ContactPairInterface, ContactPair } from './ContactPair';
+import { Link } from 'react-router-dom';
+import { type BlogEntry } from '../data';
 
 function HomeButton({ href, icon }: { href: string, icon: IconType }): ReactElement {
   const Icon = icon
@@ -109,6 +111,20 @@ export function Projects({ projects, academic }: { projects: CardInterfaceData[]
       {acRows}
     </div>
   )
+}
+
+export function BlogList({ blogs }: { blogs: BlogEntry[] }): ReactElement {
+  return (
+    <div className="w-svw h-svh flex flex-col items-center justify-center">
+      <div className="flex flex-col gap-4">
+        {blogs.map((blog, i) => (
+          <Link key={i} to={`/blogs/${blog.slug}`} className="text-xl hover:text-hover hover:underline">
+            {blog.title}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export function Contact({ contactInfo }: { contactInfo: ContactPairInterface[] }) {

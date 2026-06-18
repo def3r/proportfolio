@@ -113,6 +113,16 @@ export const projects: CardInterfaceData[] = [
   },
 ]
 
+export interface BlogEntry {
+  title: string;
+  slug: string;
+  file: string;
+}
+
+export const blogs: BlogEntry[] = [
+  { title: "Stranded Lullaby", slug: "stranded-lullaby", file: "hall" },
+]
+
 export const contactInfo: ContactPairInterface[] = [
   {
     href: "mailto:contact@def3r.in",
