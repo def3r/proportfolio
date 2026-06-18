@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import { Card, type CardInterfaceData } from './Card';
 import { IoIosMail } from "react-icons/io";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaNoteSticky } from "react-icons/fa6";
 import type { IconType } from 'react-icons';
 import { type ContactPairInterface, ContactPair } from './ContactPair';
 import { Link } from 'react-router-dom';
@@ -13,7 +14,7 @@ function HomeButton({ href, icon }: { href: string, icon: IconType }): ReactElem
   return <a
     className="cursor-pointer hover:bg-transparent hover:text-hover hover:underline hover:scale-110"
     href={href}
-    target="_blank"
+    target={href == '/notes' ? '' : '_blank'}
     rel="noopener noreferrer"
   >
     <Icon size="2em" />
@@ -48,6 +49,7 @@ export function Home({ name, description }: { name: string, description: string 
         <HomeButton href="https://www.github.com/def3r" icon={FaGithub} />
         <HomeButton href="https://www.linkedin.com/in/ayaank9/" icon={FaLinkedin} />
         <HomeButton href="mailto:contact@def3r.in" icon={IoIosMail} />
+        <HomeButton href="/notes" icon={FaNoteSticky} />
       </div>
 
     </div>
@@ -116,6 +118,7 @@ export function Projects({ projects, academic }: { projects: CardInterfaceData[]
 export function BlogList({ blogs }: { blogs: BlogEntry[] }): ReactElement {
   return (
     <div className="w-svw h-svh flex flex-col items-center justify-center">
+      <Link to="/notes" className="hover:underline hover:text-hover text-sm">Goto Notes</Link>
       <div className="flex flex-col gap-4">
         {blogs.map((blog, i) => (
           <Link key={i} to={`/blogs/${blog.slug}`} className="text-xl hover:text-hover hover:underline">

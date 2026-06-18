@@ -21,8 +21,9 @@
   pre, code {
     background-color: #050505;
     font-family: "Courier New", Courier, monospace;
-    border-radius: 10px;
+    border-radius: 5px;
     color: #eb5e28;
+    padding: 2px;
   }
 
   pre {
