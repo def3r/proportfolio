@@ -1,55 +1,57 @@
-h1 { font-size: 4rem; }
-h2 { font-size: 3rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.5rem; }
+.blog-content {
+  h1 { font-size: 4rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2rem; }
+  h4 { font-size: 1.5rem; }
 
-blockquote {
-  font-family: "Courier New", Courier, monospace;
-  font-style: italic;
-  color: #ccc5b995;
-}
+  blockquote {
+    font-family: "Courier New", Courier, monospace;
+    font-style: italic;
+    color: #ccc5b995;
+  }
 
-p {
-  padding: 1rem 0rem;
-}
+  p {
+    padding: 1rem 0rem;
+  }
 
-img {
-  padding: 2rem 0rem;
-}
+  img {
+    padding: 2rem 0rem;
+  }
 
-pre, code {
-  background-color: #050505;
-  font-family: "Courier New", Courier, monospace;
-  border-radius: 10px;
-  color: #eb5e28;
-}
+  pre, code {
+    background-color: #050505;
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 10px;
+    color: #eb5e28;
+  }
 
-pre {
-  padding: 1rem;
-  overflow-y: auto;
-  white-space: pre;
-}
+  pre {
+    padding: 1rem;
+    overflow-y: auto;
+    white-space: pre;
+  }
 
-a {
-  text-decoration: underline;
-  font-style: italic
-}
+  a {
+    text-decoration: underline;
+    font-style: italic
+  }
 
-a:hover {
-  color: #eb5e28;
-}
+  a:hover {
+    color: #eb5e28;
+  }
 
-ul { list-style-type: square; }
-ul ul { list-style-type: circle; padding-left: 2rem; }
-ul ul ul { list-style-type: disc; padding-left: 2rem; }
+  ul { list-style-type: square; }
+  ul ul { list-style-type: circle; padding-left: 2rem; }
+  ul ul ul { list-style-type: disc; padding-left: 2rem; }
 
-ul:has(input[type="checkbox"]) {
-  list-style-type: none !important;
-}
+  ul:has(input[type="checkbox"]) {
+    list-style-type: none !important;
+  }
 
-hr {
-  background-color: #ccc5b995;
-  height: 1px;
-  border: none;
-  margin: 1rem auto;
+  hr {
+    background-color: #ccc5b995;
+    height: 1px;
+    border: none;
+    margin: 1rem auto;
+  }
 }

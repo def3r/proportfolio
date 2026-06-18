@@ -42,7 +42,7 @@ export default function BlogPage() {
       <div className="max-w-2xl mx-auto px-4 py-12">
         <Link to="/" className="hover:underline hover:text-hover text-sm">← Back</Link>
         <div
-          className="mt-8 prose"
+          className="mt-8 prose blog-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
