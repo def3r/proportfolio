@@ -1,12 +1,29 @@
+import { useState, useEffect } from 'react';
 import { NavButton } from './components/NavButton';
 import { Home, Projects, Contact, BlogList } from './components/Content'
 import { useSections } from './store';
-import { name, description, projects, contactInfo, blogs } from './data';
+import { name, description, projects, contactInfo, type BlogEntry } from './data';
 import Marquee from './components/Marquee';
 
 export default function HomePg() {
   const sections: string[] = ['Home', 'Projects', 'Blogs (beta)', 'Contact']
   const curSec = useSections((state) => state.section);
+  const [blogs, setBlogs] = useState<BlogEntry[]>([]);
+
+  useEffect(() => {
+    const registryUrl = `https://raw.githubusercontent.com/def3r/SIGSEGV/refs/heads/main/blogs/registry.json?t=${Date.now()}`;
+
+    fetch(registryUrl)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setBlogs(data);
+      })
+      .catch(err => {
+        console.error("Failed to load blog directory", err);
+      });
+  }, []);
 
   return (
     <div className="text-text inter-regular bg-bg absolute -z-20">
