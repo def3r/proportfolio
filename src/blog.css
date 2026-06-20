@@ -1,8 +1,8 @@
 .blog-content {
-  h1 { font-size: 4rem; }
-  h2 { font-size: 3rem; }
-  h3 { font-size: 2rem; }
-  h4 { font-size: 1.5rem; }
+  h1 { font-size: 45px; padding-top: 1.5rem; }
+  h2 { font-size: 30px; padding-top: 1rem; }
+  h3 { font-size: 25px; padding-top: 1rem; }
+  h4 { font-size: 20px; padding-top: 1rem; }
 
   blockquote {
     font-family: "Courier New", Courier, monospace;
@@ -11,15 +11,15 @@
   }
 
   p {
-    padding: 1rem 0rem;
+    padding-top: 1rem;
   }
 
   img {
     padding: 2rem 0rem;
   }
 
-  pre, code {
-    background-color: #050505;
+  code {
+    background-color: #25242296;
     font-family: "Courier New", Courier, monospace;
     border-radius: 5px;
     color: #eb5e28;
@@ -27,9 +27,18 @@
   }
 
   pre {
-    padding: 1rem;
+    border-radius: 5px;
     overflow-y: auto;
-    white-space: pre;
+    margin: 1rem 0;
+    background-color: #25242296;
+    padding: 1rem;
+  }
+
+  pre code {
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
   }
 
   a {
@@ -44,6 +53,13 @@
   ul { list-style-type: square; }
   ul ul { list-style-type: circle; padding-left: 2rem; }
   ul ul ul { list-style-type: disc; padding-left: 2rem; }
+
+  ol { list-style-type: decimal; }
+  ol ol { list-style-type: lower-alpha; padding-left: 2rem; }
+  ol ol ol { list-style-type: lower-roman; padding-left: 2rem; }
+
+  li { padding-top: 0.5rem; }
+  li p:first-of-type { padding: 0; }
 
   ul:has(input[type="checkbox"]) {
     list-style-type: none !important;

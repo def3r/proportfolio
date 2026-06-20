@@ -1,8 +1,34 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js/lib/core';
+import c from 'highlight.js/lib/languages/c';
+import cpp from 'highlight.js/lib/languages/cpp';
+import python from 'highlight.js/lib/languages/python';
+import bash from 'highlight.js/lib/languages/bash';
+import llvm from 'highlight.js/lib/languages/llvm';
+import plaintext from 'highlight.js/lib/languages/plaintext'
+
+hljs.registerLanguage('c', c);
+hljs.registerLanguage('cpp', cpp);
+hljs.registerLanguage('python', python);
+hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('sh', bash);
+hljs.registerLanguage('llvm', llvm);
+hljs.registerLanguage('plaintext', plaintext)
+
+import 'highlight.js/styles/tokyo-night-dark.css';
 import { blogs } from './data';
 import "./blog.css";
+
+marked.use(markedHighlight({
+  emptyLangClass: 'hljs',
+  highlight(code, lang) {
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, { language }).value;
+  }
+}));
 
 const markdownFiles = import.meta.glob('./blogs/*.md', { query: '?raw', import: 'default' });
 
